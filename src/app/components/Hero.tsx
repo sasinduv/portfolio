@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { Github, Linkedin, Download, ArrowRight } from 'lucide-react';
-import profileImage from 'figma:asset/58ea2aa72d70027e432bddd295341529da1a93dd.png';
+// import profileImage from '../../assets/58ea2aa72d70027e432bddd295341529da1a93dd.png';
 
 export function Hero() {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -120,7 +120,7 @@ export function Hero() {
                 className="relative"
               >
                 <img
-                  src={profileImage}
+                  src= "src\assets\58ea2aa72d70027e432bddd295341529da1a93dd.png"
                   alt="Sasindu Gihan"
                   className="w-72 h-72 md:w-96 md:h-96 rounded-full object-cover border-4 border-purple-500/50 shadow-2xl shadow-purple-500/50 relative z-10"
                 />
