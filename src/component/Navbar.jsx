@@ -25,7 +25,7 @@ transition-all duration-300 ease-out cursor-pointer">
                         S
                     </div>
                     <div>
-                        <h1 className="text-2xl font-semibold text-gray-900 leading-none hover:text-blue-500 transition">Sasindu</h1>
+                        <h1 className="font-heading text-2xl font-semibold tracking-normal text-gray-900 leading-none hover:text-blue-500 transition">Sasindu</h1>
                         <p className="text-xs tracking-[0.3em] text-gray-400 font-semibold mt-1 hover:text-black transition">
                             Sasindu Gihan
                         </p>
@@ -90,7 +90,7 @@ transition-all duration-300 ease-out cursor-pointer">
 
                     <a
                         href="#contact"
-                        className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-8 py-4 rounded-2xl shadow-[0_10px_25px_rgba(59,130,246,0.25)] transition flex items-center gap-3"
+                        className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-8 py-4 rounded-2xl hover:shadow-[0_10px_25px_rgba(59,130,246,0.25)] transition flex items-center gap-3 hover:-translate-y-0.5"
                     >
                         Get in Touch
                         <span className="text-xl">→</span>
