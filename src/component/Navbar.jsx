@@ -1,17 +1,15 @@
-import React from "react";
-import { useState } from "react";
-import { Navigation } from "react-dom";
-
-
+import React, { useState } from "react";
+import { useLocation, Link } from "react-router-dom";
 
 export default function Navbar() {
-    const [active, setActive] = useState("#home");
-    
+    const location = useLocation();
+    const isHomePage = location.pathname === "/";
+    const [active, setActive] = useState(location.hash || "#home");
 
     const menu = [
         { name: "Home", href: "#home" },
         { name: "Services", href: "#services" },
-        { name: "Projects", href: "#projects" },
+        { name: "Projects", href: "/projects" },
         { name: "Blog", href: "#blog" },
         { name: "Contact", href: "#contact" }
     ];
@@ -21,9 +19,8 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto bg-white rounded-[28px] shadow-sm border border-gray-200 px-8 py-6 flex items-center justify-between">
 
                 {/* Left Logo */}
-                <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-2xl bg-blue-500 flex items-center justify-center text-white text-3xl font-bold shadow-md hover:shadow-xl hover:-translate-y-0.5 
-transition-all duration-300 ease-out cursor-pointer">
+                <Link to="/" className="flex items-center gap-4">
+                    <div className="w-14 h-14 rounded-2xl bg-blue-500 flex items-center justify-center text-white text-3xl font-bold shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 ease-out cursor-pointer">
                         S
                     </div>
                     <div>
@@ -32,28 +29,35 @@ transition-all duration-300 ease-out cursor-pointer">
                             Sasindu Gihan
                         </p>
                     </div>
-                </div>
+                </Link>
 
                 {/* Center Menu */}
                 <div className="hidden md:flex items-center bg-[#f8f8f8] border border-gray-200 rounded-3xl px-3 py-2 gap-2 shadow-inner">
+                    {menu.map((item) => {
+                        const isProjectsTab = item.name === "Projects";
+                        const target = isProjectsTab ? item.href : (isHomePage ? item.href : `/${item.href}`);
+                        const isActive = isProjectsTab 
+                            ? location.pathname === "/projects" 
+                            : (active === item.href && isHomePage);
 
-                    {menu.map((id) => (
-                        <a
-                            key={id.link}
-                            href={`#${id.link}`}
-                            onClick={() => setActive(id.link)}
-                            className={`group relative px-8 py-3 rounded-2xl font-medium transition-all duration-300
-    ${active === id.link
-                                    ? "bg-white text-blue-500 shadow-sm"
-                                    : "text-gray-500 hover:text-black"
-                                }`}
-                        >
-                            {id.name}
+                        return (
+                            <a
+                                key={item.name}
+                                href={target}
+                                onClick={() => setActive(item.href)}
+                                className={`group relative px-8 py-3 rounded-2xl font-medium transition-all duration-300
+        ${isActive
+                                        ? "bg-white text-blue-500 shadow-sm"
+                                        : "text-gray-500 hover:text-black"
+                                    }`}
+                            >
+                                {item.name}
 
-                            {/* underline */}
-                            <span className="absolute left-1/2 -bottom-1 w-0 h-[2px] bg-blue-500 transition-all duration-300 group-hover:w-1/8  "></span>
-                        </a>
-                    ))}
+                                {/* underline */}
+                                <span className={`absolute left-1/2 -bottom-1 w-0 h-[2px] bg-blue-500 transition-all duration-300 group-hover:w-1/8 ${isActive ? "w-1/8" : ""}`}></span>
+                            </a>
+                        );
+                    })}
                 </div>
 
                 {/* Right Side */}
