@@ -1,14 +1,28 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { contactInfo } from "../data/contact";
+import { GitHubIcon, LinkedInIcon } from "./SocialIcons";
+
+const socialLinks = [
+  {
+    label: "LinkedIn",
+    href: contactInfo.links.linkedin,
+    icon: LinkedInIcon,
+  },
+  {
+    label: "GitHub",
+    href: contactInfo.links.github,
+    icon: GitHubIcon,
+  },
+];
 
 export default function Home() {
   return (
     <section
       id="home"
-      className="w-full h-screen flex items-center justify-center bg-white"
+      className="w-full min-h-screen flex items-center justify-center bg-white py-16"
     >
       <div className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-center gap-16 px-6">
-
-
         <div className="p-2 flex items-center justify-center rounded-full bg-gray-300">
           <div className="p-1 rounded-full bg-white shadow-lg">
             <img
@@ -19,10 +33,7 @@ export default function Home() {
           </div>
         </div>
 
-
-        <div className="text-center md:text-left flex flex-col gap-6 items-center">
-
-          {/* Name */}
+        <div className="text-center md:text-left flex flex-col gap-6 items-center md:items-start">
           <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-semibold md:font-bold tracking-tight leading-[0.98] text-gray-900 flex items-center justify-center md:justify-start gap-3">
             Sasindu Gihan
             <svg
@@ -36,46 +47,49 @@ export default function Home() {
             </svg>
           </h1>
 
-          {/* Subtitle */}
           <p className="mt-4 text-lg md:text-xl leading-relaxed text-gray-600">
-            Software Engineer | Full Stack Developer & Problem Solver
+            {contactInfo.role}
           </p>
 
+          <p className="max-w-xl text-base leading-7 text-gray-500">
+            I design and develop modern web applications with a strong focus on
+            user experience, performance, and practical business value.
+          </p>
 
-          {/* Social Icons */}
-          <div className="flex justify-center font-semibold md:justify-start gap-6 mt-6 text-gray-800">
-
-            {/* LinkedIn */}
-            <a
-              href="https://www.linkedin.com/in/sasindu-gihan-247716227/"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-black transition text-2xl"
+          <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-2">
+            <Link
+              to="/projects"
+              className="inline-flex items-center gap-2 rounded-2xl bg-blue-500 px-7 py-4 font-semibold text-white transition hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-[0_16px_32px_rgba(59,130,246,0.28)]"
             >
-              <i className="fab fa-linkedin"></i>
-            </a>
-
-            {/* GitHub */}
+              Explore Projects
+            </Link>
             <a
-              href="https://github.com/sasinduv"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-black transition text-2xl"
+              href="#contact"
+              className="inline-flex items-center gap-2 rounded-2xl border border-gray-200 bg-white px-7 py-4 font-semibold text-gray-800 transition hover:-translate-y-0.5 hover:border-blue-200 hover:text-blue-600 hover:shadow-lg"
             >
-              <i className="fab fa-github"></i>
+              Contact Section
             </a>
+          </div>
 
-            {/* Twitter */}
-            <a
-              href="#"
-              className="hover:text-black transition text-2xl"
-            >
-              <i className="fab fa-x-twitter"></i>
-            </a>
+          <div className="flex flex-wrap justify-center font-semibold md:justify-start gap-4 mt-2 text-gray-800">
+            {socialLinks.map((item) => {
+              const IconComponent = item.icon;
 
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-3 rounded-2xl border border-gray-200 px-5 py-3 text-sm text-gray-700 transition hover:-translate-y-0.5 hover:border-blue-200 hover:text-blue-600 hover:shadow-lg"
+                >
+                  <IconComponent className="h-5 w-5" />
+                  {item.label}
+                </a>
+              );
+            })}
           </div>
         </div>
-
       </div>
     </section>
   );

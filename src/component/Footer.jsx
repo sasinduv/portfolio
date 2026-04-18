@@ -1,56 +1,97 @@
+import React from "react";
+import { Mail, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
+import { contactInfo } from "../data/contact";
+import { GitHubIcon, LinkedInIcon } from "./SocialIcons";
+
+const socialLinks = [
+  {
+    label: "GitHub",
+    href: contactInfo.links.github,
+    icon: GitHubIcon,
+  },
+  {
+    label: "LinkedIn",
+    href: contactInfo.links.linkedin,
+    icon: LinkedInIcon,
+  },
+];
+
 export default function Footer() {
-    return (
-        <footer className="bg-white border-t border-gray-200 mt-20">
-            <div className="max-w-6xl mx-auto px-6 py-10">
+  return (
+    <footer className="mt-20 border-t border-gray-200 bg-white">
+      <div className="max-w-6xl mx-auto px-6 py-10">
+        <div className="flex flex-col justify-between gap-10 md:flex-row">
+          <div>
+            <h2 className="text-2xl font-bold text-gray-900">{contactInfo.name}</h2>
+            <p className="mt-3 max-w-sm text-gray-600">{contactInfo.role}</p>
+            <a
+              href={`mailto:${contactInfo.email}`}
+              className="mt-5 inline-flex items-center gap-3 text-sm font-semibold text-blue-500 transition hover:text-blue-600"
+            >
+              <Mail className="h-4 w-4" />
+              {contactInfo.email}
+            </a>
+          </div>
 
-                {/* Top Section */}
-                <div className="flex flex-col md:flex-row justify-between gap-10">
-
-                    {/* Left - About */}
-                    <div>
-                        <h2 className="text-2xl font-bold text-gray-900">
-                            Sasindu Gihan
-                        </h2>
-                        <p className="mt-3 text-gray-600 max-w-sm">
-                            Software Engineer passionate about building modern web
-                            applications and solving real-world problems.
-                        </p>
-                    </div>
-
-                    {/* Middle - Links */}
-                    <div>
-                        <h3 className="text-lg font-semibold text-gray-800">Quick Links</h3>
-                        <ul className="mt-3 space-y-2 text-gray-600">
-                            <li><a href="#home" className="hover:text-black">Home</a></li>
-                            <li><a href="#projects" className="hover:text-black">Projects</a></li>
-                            <li><a href="#contact" className="hover:text-black">Contact</a></li>
-                        </ul>
-                    </div>
-
-                    {/* Right - Social */}
-                    <div>
-                        <h3 className="text-lg font-semibold text-gray-800">Connect</h3>
-                        <div className="flex gap-4 mt-3 text-gray-600 text-xl">
-
-                            <a href="https://github.com/sasinduv" target="_blank">
-                                <i className="fab fa-github hover:text-black"></i>
-                            </a>
-
-                            <a href="https://www.linkedin.com/in/sasindu-gihan-247716227/" target="_blank">
-                                <i className="fab fa-linkedin hover:text-black"></i>
-                            </a>
-
-                        </div>
-                    </div>
-
-                </div>
-
-                {/* Bottom */}
-                <div className="mt-10 text-center text-gray-500 text-sm border-t pt-5">
-                    © {new Date().getFullYear()} Sasindu Gihan. All rights reserved.
-                </div>
-
+          <div>
+            <h3 className="text-lg font-semibold text-gray-800">Quick Links</h3>
+            <div className="mt-3 flex flex-col gap-2 text-gray-600">
+              <Link to="/" className="transition hover:text-black">
+                Home
+              </Link>
+              <Link to="/projects" className="transition hover:text-black">
+                Projects
+              </Link>
+              <Link to="/contact" className="transition hover:text-black">
+                Contact
+              </Link>
             </div>
-        </footer>
-    )
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold text-gray-800">Mobile</h3>
+            <div className="mt-3 flex flex-col gap-3 text-gray-600">
+              {contactInfo.phones.map((phone) => (
+                <a
+                  key={phone.value}
+                  href={`tel:${phone.value}`}
+                  className="inline-flex items-center gap-3 transition hover:text-black"
+                >
+                  <Phone className="h-4 w-4" />
+                  {phone.display}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold text-gray-800">Connect</h3>
+            <div className="mt-3 flex gap-4 text-gray-600">
+              {socialLinks.map((item) => {
+                const IconComponent = item.icon;
+
+                return (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={item.label}
+                    className="rounded-full border border-gray-200 p-3 transition hover:-translate-y-0.5 hover:border-blue-200 hover:text-blue-500"
+                  >
+                    <IconComponent className="h-5 w-5" />
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-10 border-t pt-5 text-center text-sm text-gray-500">
+          &copy; {new Date().getFullYear()} {contactInfo.name}. All rights reserved.
+        </div>
+      </div>
+    </footer>
+  );
 }
