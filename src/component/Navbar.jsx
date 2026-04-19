@@ -5,8 +5,9 @@ import { GitHubIcon, LinkedInIcon } from "./SocialIcons";
 
 const menu = [
   { name: "Home", to: "/" },
-  { name: "Projects", to: "/projects" },
+  { name: "Certification", to: "/certification" },
   { name: "Contact", to: "/contact" },
+  { name: "Project", to: "/projects" }
 ];
 
 const socialLinks = [

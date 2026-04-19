@@ -40,6 +40,9 @@ export default function Footer() {
               <Link to="/" className="transition hover:text-black">
                 Home
               </Link>
+              <Link to="/certification" className="transition hover:text-black">
+                Certification
+              </Link>
               <Link to="/projects" className="transition hover:text-black">
                 Projects
               </Link>
