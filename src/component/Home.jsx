@@ -58,17 +58,17 @@ export default function Home() {
 
           <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-2">
             <Link
-              to="/projects"
+              to="/certification"
               className="inline-flex items-center gap-2 rounded-2xl bg-blue-500 px-7 py-4 font-semibold text-white transition hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-[0_16px_32px_rgba(59,130,246,0.28)]"
+            >
+              View Certification
+            </Link>
+            <Link
+              to="/projects"
+              className="inline-flex items-center gap-2 rounded-2xl border border-gray-200 bg-white px-7 py-4 font-semibold text-gray-800 transition hover:-translate-y-0.5 hover:border-blue-200 hover:text-blue-600 hover:shadow-lg"
             >
               Explore Projects
             </Link>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 rounded-2xl border border-gray-200 bg-white px-7 py-4 font-semibold text-gray-800 transition hover:-translate-y-0.5 hover:border-blue-200 hover:text-blue-600 hover:shadow-lg"
-            >
-              Contact Section
-            </a>
           </div>
 
           <div className="flex flex-wrap justify-center font-semibold md:justify-start gap-4 mt-2 text-gray-800">
