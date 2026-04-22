@@ -8,7 +8,7 @@ const allProjects = [
     id: 1,
     title: "CAFM System - FACILITRON",
     desc: "A full-stack facility management system developed by React and Node.js.",
-    img: "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=400&q=80",
+    img: "images/Screenshot 2026-04-08 142029.png",
   },
   {
     id: 2,

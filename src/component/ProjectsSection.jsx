@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 const featuredProjects = [
     {
         id: 1,
-        title: 'E-Commerce Platform',
-        desc: 'A full-stack e-commerce solution with React and Node.js.',
-        img: 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=400&q=80'
+        title: 'CAFM System - FACILITRON',
+        desc: 'A full-stack facility management system developed by React and Node.js.',
+        img: 'images/Screenshot 2026-04-08 142029.png'
     },
     {
         id: 2,
-        title: 'Task Management Tool',
-        desc: 'A Kanban-style task management app built with Tailwind UI.',
+        title: 'POS System',
+        desc: 'JAVA + JDBC architectured builling system',
         img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80'
     },
     {
