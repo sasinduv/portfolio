@@ -24,21 +24,9 @@ const allProjects = [
   },
   {
     id: 4,
-    title: "Finance Dashboard",
-    desc: "An interactive chart-heavy financial dashboard dashboard built with Chart.js.",
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80",
-  },
-  {
-    id: 5,
     title: "Portfolio Template",
     desc: "A personal portfolio template for creatives, designers, and developers.",
     img: "https://images.unsplash.com/photo-1507238692062-5a042e9eec62?auto=format&fit=crop&w=400&q=80",
-  },
-  {
-    id: 6,
-    title: "Recipe Finder",
-    desc: "A responsive single page application that connects to recipe APIs.",
-    img: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80",
   },
 ];
 
