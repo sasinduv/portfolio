@@ -19,5 +19,6 @@ export const contactInfo = {
   links: {
     linkedin: "https://www.linkedin.com/in/sasindu-gihan-247716227/",
     github: "https://github.com/sasinduv",
+    email: "kvsgudayanga@gmail.com",
   },
 };
